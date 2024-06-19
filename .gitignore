@@ -1,0 +1,6 @@
+/target
+preferences.json
+data.*
+.vscode
+/dist
+/wasmedge
