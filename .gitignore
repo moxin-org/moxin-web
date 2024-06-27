@@ -1,6 +1,7 @@
 /target
 preferences.json
 data.*
+.DS_Store
 .vscode
 /dist
 /wasmedge

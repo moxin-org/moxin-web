@@ -4,7 +4,7 @@ live_design!{
     import makepad_widgets::base::*;
     import makepad_widgets::theme_desktop_dark::*;
 
-        COLOR_CONTAINER = (THEME_COLOR_D_1)
+    COLOR_CONTAINER = (THEME_COLOR_D_1)
     COLOR_ACCENT = (THEME_COLOR_MAKEPAD)
 
     DEMO_COLOR_1 = #8f0
@@ -42,7 +42,7 @@ live_design!{
     ZooDesc = <P> { text: "" }
 
     ZooBlock = <RoundedView> {
-        width: 120., height: 50.
+        width: 170., height: 50.
         margin: 0.,
         spacing: 0.,
 
@@ -65,7 +65,7 @@ live_design!{
                 draw_bg: {
                     fn pixel(self) -> vec4 {
                         // test
-                        return mix(#7, #3, self.pos.y);
+                        return mix(#8, #5, self.pos.y);
                     }
                 }
 
@@ -74,7 +74,7 @@ live_design!{
                     spacing:10,
                     align: {
                         x: 0.5,
-                        y: 0.2
+                        y: 0.5
                     },
 
                     <View> {
@@ -86,9 +86,114 @@ live_design!{
                     }
 
                     <View> {
-                        width: 350, height: Fit, flow: Down,
+                        width: 340, height: Fit, flow: Down,
                         <H1> { text: "Moxin App" }
                     }
+
+                    <ZooBlock> {
+                        flow: Right,
+
+                        <ButtonFlat> {
+                            icon_walk: { width: 20. }
+                            draw_icon: {
+                                color: (DEMO_COLOR_3),
+                                svg_file: dep("crate://self/resources/github-mark.svg"),
+                            }
+                        }
+                        <LinkLabel> {
+                            text: "Release Page",
+                            width: Fit,
+                            url: "https://github.com/moxin-org/moxin/releases/tag/v0.1.0-alpha",
+                            open_in_place: false
+                        }
+                    }
+                    <ZooBlock> {
+                        flow: Right,
+                        <ButtonFlat> {
+                            icon_walk: { width: 20. }
+                            draw_icon: {
+                                color: (DEMO_COLOR_2),
+                                svg_file: dep("crate://self/resources/apple-logo.svg"),
+                            }
+                        }
+                        <LinkLabel> {
+                            text: "Download macOS",
+                            width: Fit,
+                            url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
+                            open_in_place: false
+                        }
+                    }
+                    <ZooBlock> {
+                        flow: Right,
+                        <ButtonFlat> {
+                            icon_walk: { width: 20. }
+                            draw_icon: {
+                                color: (DEMO_COLOR_1),
+                                svg_file: dep("crate://self/resources/debian-logo.svg"),
+                            }
+                        }
+                        <LinkLabel> {
+                            text: "Download Debian",
+                            width: Fit,
+                            url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/moxin_0.1.0_amd64.deb",
+                            open_in_place: false
+                        }
+                    }
+                    <ZooBlock> {
+                        flow: Right,
+                        <ButtonFlat> {
+                            icon_walk: { width: 20. }
+                            draw_icon: {
+                                color: (DEMO_COLOR_1),
+                                svg_file: dep("crate://self/resources/linux-logo.svg"),
+                            }
+                        }
+                        <LinkLabel> {
+                            text: "Download Linux",
+                            width: Fit,
+                            url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/moxin_0.1.0_x86_64.AppImage",
+                            open_in_place: false
+                        }
+                    }
+                    <ZooBlock> {
+                        flow: Right,
+                        <ButtonFlat> {
+                            icon_walk: { width: 20. }
+                            draw_icon: {
+                                color: (DEMO_COLOR_1),
+                                svg_file: dep("crate://self/resources/arch-logo.svg"),
+                            }
+                        }
+                        <LinkLabel> {
+                            text: "Download Arch Linux",
+                            width: Fit,
+                            url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
+                            open_in_place: true
+                        }
+                    }
+
+                    <ZooBlock> {
+                        flow: Right,
+                        // <LinkLabelIcon> {
+                        //     text: "Click me!"
+                        //     draw_icon: {
+                        //         color: #f00,
+                        //         svg_file: dep("crate://self/resources/moxin-logo.svg"),
+                        //     }
+
+                        //     icon_walk: {
+                        //         width: 25, height: Fit,
+                        //         margin: 0.0
+                        //     }
+                        // }
+                        // <LinkLabel> {
+                        //     text: "Download",
+                        //     width: Fit,
+                        //     url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
+                        //     open_in_place: true
+                        // }
+                    }
+
                 }
             }
         }
