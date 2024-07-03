@@ -13,8 +13,9 @@ live_design!{
     DEMO_COLOR_1 = #8f0
     DEMO_COLOR_2 = #0f8
     DEMO_COLOR_3 = #80f
-    TEXT_COLOR = #292
+    TEXT_COLOR = #f00
     LINK_LABEL_SIZE = 12
+    ICON_WIDTH = 20.
 
     ZooTitle = <View> {
         width: Fill, height: Fit,
@@ -47,7 +48,7 @@ live_design!{
     ZooDesc = <P> { text: "" }
 
     ZooBlock = <RoundedView> {
-        width: 170., height: 50.
+        width: 200., height: 50.
         margin: 0.,
         spacing: 0.,
 
@@ -137,7 +138,7 @@ live_design!{
                             width: 340, height: Fit, flow: Down,
                             <H1> {
                                 draw_text: {
-                                    color: (TEXT_COLOR),
+                                    color: (COLOR_ACCENT),
                                 },
                                 text: "Moxin App"
                             }
@@ -147,7 +148,7 @@ live_design!{
                             flow: Right,
 
                             <ButtonFlat> {
-                                icon_walk: { width: 20. }
+                                icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
                                     color: (DEMO_COLOR_3),
                                     svg_file: dep("crate://self/resources/github-mark.svg"),
@@ -155,7 +156,9 @@ live_design!{
                             }
                             <LinkLabel> {
                                 draw_text: {
-                                    color: (TEXT_COLOR),
+                                    fn get_color(self) -> vec4 {
+                                        return (DEMO_COLOR_3)
+                                    }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
                                     }
@@ -169,7 +172,7 @@ live_design!{
                         <ZooBlock> {
                             flow: Right,
                             <ButtonFlat> {
-                                icon_walk: { width: 20. }
+                                icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
                                     color: (DEMO_COLOR_2),
                                     svg_file: dep("crate://self/resources/apple-logo.svg"),
@@ -177,7 +180,9 @@ live_design!{
                             }
                             <LinkLabel> {
                                 draw_text: {
-                                    color: (TEXT_COLOR),
+                                    fn get_color(self) -> vec4 {
+                                        return (DEMO_COLOR_2)
+                                    }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
                                     }
@@ -191,7 +196,7 @@ live_design!{
                         <ZooBlock> {
                             flow: Right,
                             <ButtonFlat> {
-                                icon_walk: { width: 20. }
+                                icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
                                     color: (DEMO_COLOR_1),
                                     svg_file: dep("crate://self/resources/debian-logo.svg"),
@@ -199,7 +204,9 @@ live_design!{
                             }
                             <LinkLabel> {
                                 draw_text: {
-                                    color: (TEXT_COLOR),
+                                    fn get_color(self) -> vec4 {
+                                        return (DEMO_COLOR_1)
+                                    }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
                                     }
@@ -213,7 +220,7 @@ live_design!{
                         <ZooBlock> {
                             flow: Right,
                             <ButtonFlat> {
-                                icon_walk: { width: 20. }
+                                icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
                                     color: (DEMO_COLOR_1),
                                     svg_file: dep("crate://self/resources/linux-logo.svg"),
@@ -221,7 +228,9 @@ live_design!{
                             }
                             <LinkLabel> {
                                 draw_text: {
-                                    color: (TEXT_COLOR),
+                                    fn get_color(self) -> vec4 {
+                                        return (DEMO_COLOR_1)
+                                    }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
                                     }
@@ -235,7 +244,7 @@ live_design!{
                         <ZooBlock> {
                             flow: Right,
                             <ButtonFlat> {
-                                icon_walk: { width: 20. }
+                                icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
                                     color: (DEMO_COLOR_1),
                                     svg_file: dep("crate://self/resources/arch-logo.svg"),
@@ -243,7 +252,9 @@ live_design!{
                             }
                             <LinkLabel> {
                                 draw_text: {
-                                    color: (TEXT_COLOR),
+                                    fn get_color(self) -> vec4 {
+                                        return (DEMO_COLOR_1)
+                                    }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
                                     }
@@ -254,29 +265,6 @@ live_design!{
                                 open_in_place: true
                             }
                         }
-
-                        <ZooBlock> {
-                            flow: Right,
-                            // <LinkLabelIcon> {
-                            //     text: "Click me!"
-                            //     draw_icon: {
-                            //         color: #f00,
-                            //         svg_file: dep("crate://self/resources/moxin-logo.svg"),
-                            //     }
-
-                            //     icon_walk: {
-                            //         width: 25, height: Fit,
-                            //         margin: 0.0
-                            //     }
-                            // }
-                            // <LinkLabel> {
-                            //     text: "Download",
-                            //     width: Fit,
-                            //     url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
-                            //     open_in_place: true
-                            // }
-                        }
-
                     }
                 }
             }
