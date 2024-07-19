@@ -1,2 +1,1 @@
-cargo makepad wasm run -p moxin-web --release
-
+cargo makepad wasm run -p moxin-web --profile=small
