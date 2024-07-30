@@ -178,6 +178,7 @@ dependencies = [
  "sdfer",
  "unicode-bidi",
  "unicode-linebreak",
+ "unicode-segmentation",
 ]
 
 [[package]]
@@ -385,7 +386,7 @@ dependencies = [
 
 [[package]]
 name = "moxin-web"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "makepad-widgets",
 ]
@@ -555,6 +556,12 @@ name = "unicode-script"
 version = "0.5.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ad8d71f5726e5f285a935e9fe8edfd53f0491eb6e9a5774097fdabee7cd8c9cd"
+
+[[package]]
+name = "unicode-segmentation"
+version = "1.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d4c87d22b6e3f4a18d4d40ef354e97c90fcb14dd91d7dc0aa9d8a1172ebf7202"
 
 [[package]]
 name = "usvg"

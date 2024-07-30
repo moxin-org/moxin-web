@@ -137,20 +137,20 @@ live_design!{
                         <ParticleSystem> {
                             width: Fill,
                             height: Fill,
-                            maxparticles: 3000,
-                            spawnrate: 30,
+                            maxparticles: 200,
+                            spawnrate: 10,
                             drop_width: 3,
                             drop_height: 60,
                             particletexture:{
                                  source: dep("crate://self/resources/drop.png")
                             }
-
                         }
+
                         <BirdSystem> {
                             width: Fill,
                             height: Fill,
-                            max_birds: 100,
-                            spawnrate: 20,
+                            max_birds: 20,
+                            spawnrate: 5,
                             bird_width: 20,
                             bird_height: 20,
                             birdtexture:{
@@ -325,6 +325,8 @@ impl LiveRegister for App {
     fn live_register(cx: &mut Cx) {
         crate::makepad_widgets::live_design(cx);
         crate::my_widget::live_design(cx);
+        crate::particles::live_design(cx);
+        crate::birds::live_design(cx);
     }
 }
 

@@ -1,6 +1,6 @@
 [package]
 name = "moxin-web"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Edward Tan <guofoo@gmail.com>"]
 edition = "2021"
 description = "Moxin Website built with Makepad"
