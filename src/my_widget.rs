@@ -1,9 +1,7 @@
-use {
-    crate::{
-        makepad_widgets::makepad_derive_widget::*,
-        makepad_widgets::makepad_draw::*,
-        makepad_widgets::widget::*,
-    }
+use crate::{
+    makepad_widgets::makepad_derive_widget::*,
+    makepad_widgets::makepad_draw::*,
+    makepad_widgets::widget::*,
 };
 
 // the "MyWidget" on the *left* hand side of the below is the name we will refer to the

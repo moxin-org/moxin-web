@@ -6,14 +6,16 @@ live_design!{
     import makepad_draw::shader::std::*;
 
     import moxin_web::my_widget::MyWidget;
+    import moxin_web::particles::ParticleSystem;
+    import moxin_web::birds::BirdSystem;
 
     COLOR_CONTAINER = (THEME_COLOR_D_1)
     COLOR_ACCENT = (THEME_COLOR_MAKEPAD)
 
-    DEMO_COLOR_1 = #8f0
-    DEMO_COLOR_2 = #0f8
-    DEMO_COLOR_3 = #ee0
     TEXT_COLOR = #d93a14
+    DEMO_COLOR_1 = #03f
+    DEMO_COLOR_2 = #08f
+    DEMO_COLOR_3 = #333
     LINK_LABEL_SIZE = 15
     ICON_WIDTH = 20.
 
@@ -87,41 +89,72 @@ live_design!{
                         y: 0.5
                     },
 
-                    quad = <MyWidget> {
-                        align:{x:0.,y:0.0}
+                    water_bg = <View> {
+                        flow: Overlay,
                         width: Fill,
-                        height: Fill,
-                        draw: {
-                            // this example shader is ported from kishimisu's tutorial
-                            fn pixel(self) -> vec4 {
-                                // let uv = self.pos - 0.5;
-                                //  let uv0 = uv;
+                        height: Fill
+                        spacing: 0,
+                        padding: 0,
+                        align: {
+                            x: 0.5,
+                            y: 0.5
+                        },
+                        show_bg: true,
+                        draw_bg: {
+                            fn pixel(self) -> vec4{
+                                return vec4(0.70,0.72,0.72,1)
+                            }
+                        }
 
-                                let time = self.time * .15+23.0;
-                                // uv should be the 0-1 uv of texture...
-                                let uv = self.pos;
+                        <Image>{
+                            width: Fill;
+                            height: Fill;
+                            source: dep("crate://self/resources/background.jpg")
+                        }
 
-                                let p = mod(uv*6.283, 6.283)-150.0;
-                                let i = vec2(p);
-                                let c = 1.0;
-                                let inten = .003;
-                                let n = 0;
-                                for _n in 0..4
-                                {
-                                    let t = time * (1.0 - (3.5 / (float(n) +1.0)));
-                                    i = p + vec2(cos(t - i.x) + sin(t + i.y), sin(t - i.y) + cos(t + i.x));
-                                    c += 1.0/length(vec2(p.x / (sin(i.x+t)/inten),p.y / (cos(i.y+t)/inten)));
-                                    n = n + 1;
+                        <Image>{
+                            width: Fill;
+                            height: Fill;
+                            source: dep("crate://self/resources/water_mask.png")
+                            draw_bg: {
+
+                                fn pixel(self) -> vec4{
+                                    let col = sample2d(self.image, self.pos);
+                                    //let s = sin(self.pos.y * 150.0 + sin(self.pos.x*100.)*10.0 ) *0.5 + 0.5;
+
+                                    let q = 10.0;
+                                    let r = 1000.0;
+
+                                    let s2 = sin((self.pos.x * 100.0)/self.pos.y +self.time+ sin(self.time*0.3+self.pos.y*r + self.pos.x*0.2/self.pos.y)*q)*0.25 + 0.75;
+                                     let g = vec3(s2*0.9,s2*0.92,s2*0.95);
+                                     let a = col.x * 0.3;
+
+                                    return vec4(g*a, a);
                                 }
-                                c /= float(5);
-                                c = 1.17-pow(c, 1.4);
-                                let colour = vec3(pow(abs(c), 5.0));
-                                colour = clamp(colour*.8 + vec3(0.2, 0.2, 0.2), 0.0, 1.0);
+                            }
+                        }
 
-                                let fragColor = vec4(colour, 1.0);
+                        <ParticleSystem> {
+                            width: Fill,
+                            height: Fill,
+                            maxparticles: 3000,
+                            spawnrate: 30,
+                            drop_width: 3,
+                            drop_height: 60,
+                            particletexture:{
+                                 source: dep("crate://self/resources/drop.png")
+                            }
 
-                                //let finalColor = vec3(0.3+0.01*sin(uv.x*6.283*4));
-                                return fragColor;
+                        }
+                        <BirdSystem> {
+                            width: Fill,
+                            height: Fill,
+                            max_birds: 100,
+                            spawnrate: 20,
+                            bird_width: 20,
+                            bird_height: 20,
+                            birdtexture:{
+                                 source: dep("crate://self/resources/bird_combined.png")
                             }
                         }
                     }
@@ -159,14 +192,14 @@ live_design!{
                             <ButtonFlat> {
                                 icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
-                                    color: (DEMO_COLOR_3),
+                                    color: (DEMO_COLOR_1),
                                     svg_file: dep("crate://self/resources/github-mark.svg"),
                                 }
                             }
                             <LinkLabel> {
                                 draw_text: {
                                     fn get_color(self) -> vec4 {
-                                        return (DEMO_COLOR_3)
+                                        return (DEMO_COLOR_1)
                                     }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
@@ -207,14 +240,14 @@ live_design!{
                             <ButtonFlat> {
                                 icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
-                                    color: (DEMO_COLOR_1),
+                                    color: (DEMO_COLOR_3),
                                     svg_file: dep("crate://self/resources/debian-logo.svg"),
                                 }
                             }
                             <LinkLabel> {
                                 draw_text: {
                                     fn get_color(self) -> vec4 {
-                                        return (DEMO_COLOR_1)
+                                        return (DEMO_COLOR_3)
                                     }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
@@ -231,14 +264,14 @@ live_design!{
                             <ButtonFlat> {
                                 icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
-                                    color: (DEMO_COLOR_1),
+                                    color: (DEMO_COLOR_3),
                                     svg_file: dep("crate://self/resources/linux-logo.svg"),
                                 }
                             }
                             <LinkLabel> {
                                 draw_text: {
                                     fn get_color(self) -> vec4 {
-                                        return (DEMO_COLOR_1)
+                                        return (DEMO_COLOR_3)
                                     }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
@@ -255,14 +288,14 @@ live_design!{
                             <ButtonFlat> {
                                 icon_walk: { width: (ICON_WIDTH) }
                                 draw_icon: {
-                                    color: (DEMO_COLOR_1),
+                                    color: (DEMO_COLOR_3),
                                     svg_file: dep("crate://self/resources/arch-logo.svg"),
                                 }
                             }
                             <LinkLabel> {
                                 draw_text: {
                                     fn get_color(self) -> vec4 {
-                                        return (DEMO_COLOR_1)
+                                        return (DEMO_COLOR_3)
                                     }
                                     text_style: {
                                         font_size: (LINK_LABEL_SIZE)
