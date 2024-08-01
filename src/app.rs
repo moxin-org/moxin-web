@@ -137,7 +137,7 @@ live_design!{
                         <ParticleSystem> {
                             width: Fill,
                             height: Fill,
-                            maxparticles: 200,
+                            maxparticles: 50,
                             spawnrate: 10,
                             drop_width: 3,
                             drop_height: 60,
@@ -149,8 +149,8 @@ live_design!{
                         <BirdSystem> {
                             width: Fill,
                             height: Fill,
-                            max_birds: 20,
-                            spawnrate: 5,
+                            max_birds: 5,
+                            spawnrate: 2,
                             bird_width: 20,
                             bird_height: 20,
                             birdtexture:{
