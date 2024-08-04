@@ -13,7 +13,7 @@ live_design! {
         width: Fill,
         height: Fill,
 
-       spawnrate: 10.,
+        spawnrate: 10.,
         draw_rain: {
             texture image: texture2d
             fn pixel(self) -> vec4{
@@ -43,7 +43,6 @@ pub enum ParticleType {
     Drop,
     Splash
 }
-
 
 pub struct Particle
 {
@@ -165,9 +164,7 @@ impl Widget for ParticleSystem {
             self.area.redraw(cx);
             self.next_frame = cx.new_next_frame();
         }
-
     }
-
 
     fn draw_walk(&mut self, cx: &mut Cx2d, _scope: &mut Scope, walk: Walk) -> DrawStep {
         // lets draw a bunch of quads
@@ -186,7 +183,7 @@ impl Widget for ParticleSystem {
                     particle_type: ParticleType::Drop,
                     scale: newscale as f64,
                     position: vec3(random_f32(&mut self.seed) ,-1.0,random_f32(&mut self.seed)),
-                    velocity: vec3(0.0,0.1500 * newscale,0.), acceleration: vec3(0.0,0.0,0.0), life: 1.0});
+                    velocity: vec3(0.0,0.0500 * newscale,0.), acceleration: vec3(0.0,0.0,0.0), life: 1.0});
         }
 
         if self.spawncounter > 1.0 {
