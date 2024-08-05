@@ -173,13 +173,13 @@ live_design!{
                height: Fit,
                flow: Right,
                 align: {
-                  x: 0.7,
+                  x: 0.68,
                   y: 0.2,
                 },
 
                 <ZooBlock> {
                     width: 130,
-                    // height: Fit,
+                    height: Fit,
                     flow: Right,
                     <ButtonFlat> {
                         icon_walk: { width: (ICON_WIDTH) }
@@ -291,7 +291,7 @@ live_design!{
                 },
 
                 <ZooBlock> {
-                    width: 120,
+                    width: 110,
                     flow: Right,
                     <ButtonFlat> {
                         icon_walk: { width: (ICON_WIDTH) }
