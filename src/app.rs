@@ -173,36 +173,9 @@ live_design!{
                height: Fit,
                flow: Right,
                 align: {
-                  x: 0.68,
+                  x: 0.74,
                   y: 0.2,
                 },
-
-                <ZooBlock> {
-                    width: 130,
-                    height: Fit,
-                    flow: Right,
-                    <ButtonFlat> {
-                        icon_walk: { width: (ICON_WIDTH) }
-                        draw_icon: {
-                          color: (DEMO_COLOR_3),
-                          svg_file: dep("crate://self/resources/github-mark.svg"),
-                        }
-                    }
-                    <LinkLabel> {
-                        draw_text: {
-                        fn get_color(self) -> vec4 {
-                            return (DEMO_COLOR_3)
-                        }
-                        text_style: {
-                            font_size: (LINK_LABEL_SIZE)
-                        }
-                        },
-                        text: "GitHub",
-                        width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/tag/v0.1.0-alpha",
-                        open_in_place: false
-                    }
-                }
 
                 <ZooBlock> {
                     width: 60,
@@ -213,7 +186,8 @@ live_design!{
                         draw_icon: {
                           color: (DEMO_COLOR_3),
                           svg_file: dep("crate://self/resources/windows-logo.svg"),
-                        }
+                        },
+                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0/Moxin_0.1.0_aarch64.dmg"
                     }
                     <LinkLabel> {
                         draw_text: {
@@ -255,40 +229,6 @@ live_design!{
                         open_in_place: false
                     }
                 }
-                <ZooBlock> {
-                    width: 140,
-                    height: Fit,
-                    flow: Right,
-                    <ButtonFlat> {
-                        icon_walk: { width: (130) }
-                        draw_icon: {
-                        color: (DEMO_COLOR_3),
-                        svg_file: dep("crate://self/resources/discord-logo.svg"),
-                        }
-                    }
-                    <LinkLabel> {
-                        draw_text: {
-                        fn get_color(self) -> vec4 {
-                            return (DEMO_COLOR_3)
-                        }
-                        text_style: {
-                            font_size: (LINK_LABEL_SIZE)
-                        }
-                        },
-                        width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
-                        open_in_place: false
-                    }
-                }
-              }
-
-              <View> {
-                height: Fit,
-                flow: Right,
-                align: {
-                  x: 0.7,
-                  y: 0.3,
-                },
 
                 <ZooBlock> {
                     width: 110,
@@ -362,6 +302,69 @@ live_design!{
                         text: "debian",
                         width: Fit,
                         url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/moxin_0.1.0_amd64.deb",
+                        open_in_place: false
+                    }
+                }
+
+              }
+
+              <View> {
+                height: Fit,
+                flow: Right,
+                align: {
+                  x: 0.6,
+                  y: 0.3,
+                },
+
+                <ZooBlock> {
+                    width: 130,
+                    height: Fit,
+                    flow: Right,
+                    <ButtonFlat> {
+                        icon_walk: { width: (ICON_WIDTH) }
+                        draw_icon: {
+                          color: (DEMO_COLOR_3),
+                          svg_file: dep("crate://self/resources/github-mark.svg"),
+                        }
+                    }
+                    <LinkLabel> {
+                        draw_text: {
+                        fn get_color(self) -> vec4 {
+                            return (DEMO_COLOR_3)
+                        }
+                        text_style: {
+                            font_size: (LINK_LABEL_SIZE)
+                        }
+                        },
+                        text: "GitHub",
+                        width: Fit,
+                        url: "https://github.com/moxin-org/moxin/releases/tag/v0.1.0-alpha",
+                        open_in_place: false
+                    }
+                }
+
+                <ZooBlock> {
+                    width: 140,
+                    height: Fit,
+                    flow: Right,
+                    <ButtonFlat> {
+                        icon_walk: { width: (130) }
+                        draw_icon: {
+                        color: (DEMO_COLOR_3),
+                        svg_file: dep("crate://self/resources/discord-logo.svg"),
+                        }
+                    }
+                    <LinkLabel> {
+                        draw_text: {
+                        fn get_color(self) -> vec4 {
+                            return (DEMO_COLOR_3)
+                        }
+                        text_style: {
+                            font_size: (LINK_LABEL_SIZE)
+                        }
+                        },
+                        width: Fit,
+                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
                         open_in_place: false
                     }
                 }
