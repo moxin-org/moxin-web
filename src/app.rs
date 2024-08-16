@@ -52,23 +52,21 @@ live_design!{
           flow: Overlay,
           width: Fill,
           height: Fill
-          spacing: 0,
-          padding: 0,
-          align: {
-            x: 0.5,
-            y: 0.5
-          },
+          // align: {
+          //   x: 0.5,
+          //   y: 0.5
+          // },
 
           water_bg = <View> {
             flow: Overlay,
             width: Fill,
             height: Fill
-            spacing: 0,
-            padding: 0,
-            align: {
-              x: 0.5,
-              y: 0.5
-            },
+            // spacing: 0,
+            // padding: 0,
+            // align: {
+            //   x: 0.5,
+            //   y: 0.5
+            // },
             show_bg: true,
             draw_bg: {
               fn pixel(self) -> vec4{
@@ -155,10 +153,10 @@ live_design!{
             }
 
             <View> {
-                width: 510, height: 160, flow: Down,
+                width: 510, height: 180, flow: Down,
                 align: {
                   x: 0.5,
-                  y: 0.3,
+                  y: 0.5,
                 },
                 <H2> {
                     draw_text: {
@@ -173,46 +171,47 @@ live_design!{
                height: Fit,
                flow: Right,
                 align: {
-                  x: 0.74,
+                  x: 0.7,
                   y: 0.2,
                 },
 
-                <ZooBlock> {
-                    width: 60,
-                    height: Fit,
-                    flow: Right,
-                    <ButtonFlat> {
-                        icon_walk: { width: (ICON_WIDTH) }
-                        draw_icon: {
-                          color: (DEMO_COLOR_3),
-                          svg_file: dep("crate://self/resources/windows-logo.svg"),
-                        },
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0/Moxin_0.1.0_aarch64.dmg"
-                    }
-                    <LinkLabel> {
-                        draw_text: {
-                        fn get_color(self) -> vec4 {
-                            return (DEMO_COLOR_3)
-                        }
-                        text_style: {
-                            font_size: (LINK_LABEL_SIZE)
-                        }
-                        },
-                        width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0/Moxin_0.1.0_aarch64.dmg",
-                        open_in_place: false
-                    }
-                }
+                // <ZooBlock> {
+                //     width: 140,
+                //     height: Fit,
+                //     flow: Right,
+                //     <ButtonFlat> {
+                //         icon_walk: { width: (ICON_WIDTH) }
+                //         draw_icon: {
+                //           color: (DEMO_COLOR_3),
+                //           svg_file: dep("crate://self/resources/windows-logo.svg"),
+                //         },
+                //         url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0/Moxin_0.1.0_aarch64.dmg"
+                //     }
+                //     <LinkLabel> {
+                //         draw_text: {
+                //         fn get_color(self) -> vec4 {
+                //             return (DEMO_COLOR_3)
+                //         }
+                //         text_style: {
+                //             font_size: (LINK_LABEL_SIZE)
+                //         }
+                //         },
+                //         text: "Windows",
+                //         width: Fit,
+                //         url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0/Moxin_0.1.0_aarch64.dmg",
+                //         open_in_place: false
+                //     }
+                // }
 
                 <ZooBlock> {
                     width: 110,
                     height: Fit,
                     flow: Right,
                     <ButtonFlat> {
-                        icon_walk: { width: (80) }
+                        icon_walk: { width: (20) }
                         draw_icon: {
                         color: (DEMO_COLOR_3),
-                        svg_file: dep("crate://self/resources/macos.svg"),
+                        svg_file: dep("crate://self/resources/apple-logo.svg"),
                         }
                     }
                     <LinkLabel> {
@@ -224,6 +223,7 @@ live_design!{
                             font_size: (LINK_LABEL_SIZE)
                         }
                         },
+                        text: "macOS",
                         width: Fit,
                         url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
                         open_in_place: false
@@ -286,8 +286,8 @@ live_design!{
                     <ButtonFlat> {
                         icon_walk: { width: (ICON_WIDTH) }
                         draw_icon: {
-                        color: (DEMO_COLOR_3),
-                        svg_file: dep("crate://self/resources/debian-logo.svg"),
+                          color: (DEMO_COLOR_3),
+                          svg_file: dep("crate://self/resources/debian-logo.svg"),
                         }
                     }
                     <LinkLabel> {
@@ -312,7 +312,7 @@ live_design!{
                 height: Fit,
                 flow: Right,
                 align: {
-                  x: 0.6,
+                  x: 0.65,
                   y: 0.3,
                 },
 
@@ -324,7 +324,7 @@ live_design!{
                         icon_walk: { width: (ICON_WIDTH) }
                         draw_icon: {
                           color: (DEMO_COLOR_3),
-                          svg_file: dep("crate://self/resources/github-mark.svg"),
+                          svg_file: dep("crate://self/resources/github-logo.svg"),
                         }
                     }
                     <LinkLabel> {
@@ -348,7 +348,7 @@ live_design!{
                     height: Fit,
                     flow: Right,
                     <ButtonFlat> {
-                        icon_walk: { width: (130) }
+                        icon_walk: { width: (ICON_WIDTH) }
                         draw_icon: {
                         color: (DEMO_COLOR_3),
                         svg_file: dep("crate://self/resources/discord-logo.svg"),
@@ -363,8 +363,9 @@ live_design!{
                             font_size: (LINK_LABEL_SIZE)
                         }
                         },
+                        text: "Discord",
                         width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
+                        url: "https://discord.gg/x6Ghmusu",
                         open_in_place: false
                     }
                 }
