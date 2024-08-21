@@ -80,27 +80,6 @@ live_design!{
               source: dep("crate://self/resources/moxin-bg.jpg")
             }
 
-            // <Image>{
-            //   width: Fill;
-            //   height: Fill;
-            //   source: dep("crate://self/resources/water_mask.png")
-            //   draw_bg: {
-            //     fn pixel(self) -> vec4{
-            //       let col = sample2d(self.image, self.pos);
-            //       //let s = sin(self.pos.y * 150.0 + sin(self.pos.x*100.)*10.0 ) *0.5 + 0.5;
-
-            //       let q = 10.0;
-            //       let r = 1000.0;
-
-            //       let s2 = sin((self.pos.x * 100.0)/self.pos.y +self.time+ sin(self.time*0.3+self.pos.y*r + self.pos.x*0.2/self.pos.y)*q)*0.25 + 0.75;
-            //        let g = vec3(s2*0.9,s2*0.92,s2*0.95);
-            //        let a = col.x * 0.3;
-
-            //       return vec4(g*a, a);
-            //     }
-            //   }
-            // }
-
             <ParticleSystem> {
               width: Fill,
               height: Fill,
@@ -128,10 +107,9 @@ live_design!{
 
           content = <View>{
             flow: Down,
-            spacing:10,
             align: {
               x: 0.7,
-              y: 0.4,
+              y: 0.1,
             },
 
             <View> {
@@ -139,7 +117,7 @@ live_design!{
               height: Fit,
               flow: Down,
               align: {
-                x: 0.9,
+                x: 0.96,
                 y: 0.5,
               },
               <View> {
@@ -153,10 +131,10 @@ live_design!{
             }
 
             <View> {
-                width: 510, height: 180, flow: Down,
+                width: 510, height: 320, flow: Down,
                 align: {
                   x: 0.5,
-                  y: 0.5,
+                  y: 0.7,
                 },
                 <H2> {
                     draw_text: {
@@ -175,40 +153,39 @@ live_design!{
                   y: 0.2,
                 },
 
-                // <ZooBlock> {
-                //     width: 140,
-                //     height: Fit,
-                //     flow: Right,
-                //     <ButtonFlat> {
-                //         icon_walk: { width: (ICON_WIDTH) }
-                //         draw_icon: {
-                //           color: (DEMO_COLOR_3),
-                //           svg_file: dep("crate://self/resources/windows-logo.svg"),
-                //         },
-                //         url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0/Moxin_0.1.0_aarch64.dmg"
-                //     }
-                //     <LinkLabel> {
-                //         draw_text: {
-                //         fn get_color(self) -> vec4 {
-                //             return (DEMO_COLOR_3)
-                //         }
-                //         text_style: {
-                //             font_size: (LINK_LABEL_SIZE)
-                //         }
-                //         },
-                //         text: "Windows",
-                //         width: Fit,
-                //         url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0/Moxin_0.1.0_aarch64.dmg",
-                //         open_in_place: false
-                //     }
-                // }
-
                 <ZooBlock> {
-                    width: 110,
+                    width: 140,
                     height: Fit,
                     flow: Right,
                     <ButtonFlat> {
-                        icon_walk: { width: (20) }
+                        icon_walk: { width: (ICON_WIDTH-5) }
+                        draw_icon: {
+                          color: (DEMO_COLOR_3),
+                          svg_file: dep("crate://self/resources/windows-logo.svg"),
+                        },
+                    }
+                    <LinkLabel> {
+                        draw_text: {
+                        fn get_color(self) -> vec4 {
+                            return (DEMO_COLOR_3)
+                        }
+                        text_style: {
+                            font_size: (LINK_LABEL_SIZE)
+                        }
+                        },
+                        text: "Windows",
+                        width: Fit,
+                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-beta/moxin_0.1.0_x64-setup.exe",
+                        open_in_place: false
+                    }
+                }
+
+                <ZooBlock> {
+                    width: 115,
+                    height: Fit,
+                    flow: Right,
+                    <ButtonFlat> {
+                        icon_walk: { width: (ICON_WIDTH-5) }
                         draw_icon: {
                         color: (DEMO_COLOR_3),
                         svg_file: dep("crate://self/resources/apple-logo.svg"),
@@ -225,7 +202,7 @@ live_design!{
                         },
                         text: "macOS",
                         width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
+                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-beta/Moxin_0.1.0_aarch64.dmg",
                         open_in_place: false
                     }
                 }
@@ -251,7 +228,7 @@ live_design!{
                         },
                         text: "Linux",
                         width: 100,
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/moxin_0.1.0_x86_64.AppImage",
+                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-beta/moxin_0.1.0_x86_64.AppImage",
                         open_in_place: false
                     }
                 }
@@ -276,7 +253,7 @@ live_design!{
                         },
                         text: "archlinux",
                         width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/Moxin_0.1.0_aarch64.dmg",
+                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-beta/moxin_0.1.0_x86_64.tar.gz",
                         open_in_place: true
                     }
                 }
@@ -301,7 +278,7 @@ live_design!{
                         },
                         text: "debian",
                         width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-alpha/moxin_0.1.0_amd64.deb",
+                        url: "https://github.com/moxin-org/moxin/releases/download/v0.1.0-beta/moxin_0.1.0_amd64.deb",
                         open_in_place: false
                     }
                 }
@@ -309,10 +286,10 @@ live_design!{
               }
 
               <View> {
-                height: Fit,
+                height: 100,
                 flow: Right,
                 align: {
-                  x: 0.65,
+                  x: 0.63,
                   y: 0.3,
                 },
 
@@ -338,7 +315,7 @@ live_design!{
                         },
                         text: "GitHub",
                         width: Fit,
-                        url: "https://github.com/moxin-org/moxin/releases/tag/v0.1.0-alpha",
+                        url: "https://github.com/moxin-org/moxin/releases/tag/v0.1.0-beta",
                         open_in_place: false
                     }
                 }
