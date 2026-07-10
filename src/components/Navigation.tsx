@@ -76,9 +76,12 @@ export default function Navigation() {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           <a href="#apps" className="text-base text-warm/70 hover:text-seal transition-colors">
             {t.nav.apps}
+          </a>
+          <a href="#world-models" className="text-base text-warm/70 hover:text-seal transition-colors">
+            {t.nav.research}
           </a>
           <a href="#technology" className="text-base text-warm/70 hover:text-seal transition-colors">
             {t.nav.tech}

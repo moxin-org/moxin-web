@@ -40,6 +40,14 @@ export default function Footer() {
               Moxin Voice
             </a>
             <a
+              href="https://github.com/NU-World-Model-Embodied-AI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base text-warm/50 hover:text-seal transition-colors"
+            >
+              World Models
+            </a>
+            <a
               href="https://github.com/moxin-org"
               target="_blank"
               rel="noopener noreferrer"

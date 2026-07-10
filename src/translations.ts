@@ -3,6 +3,7 @@ const translations = {
     nav: {
       brand: "Moxin Apps",
       apps: "Applications",
+      research: "World Models",
       tech: "Technology",
     },
     hero: {
@@ -73,6 +74,43 @@ const translations = {
         ],
       },
     },
+    research: {
+      label: "Research",
+      title: "World Models & Embodied AI",
+      subtitle:
+        "Moxin connects open AI applications with research into systems that simulate, predict, and act in the physical world. Explore the latest releases from NU World Model & Embodied AI.",
+      loopLabel: "A shared research loop",
+      loopTitle: "Measure physical reality. Train against it.",
+      loopDescription:
+        "PhyGround provides the physical benchmark and human preference data; PhyWorld uses that signal to build a more physically coherent video-generation world model.",
+      projectPage: "Project page",
+      code: "GitHub",
+      artifacts: "Hugging Face",
+      exploreGithub: "Explore the research organization on GitHub",
+      exploreHuggingFace: "View all models and datasets on Hugging Face",
+      projects: [
+        {
+          name: "PhyGround",
+          kind: "Physical benchmark",
+          seal: "衡",
+          description:
+            "A benchmark for the physical plausibility of text-and-image-to-video generation, with 250 curated prompts, a 13-law physics taxonomy, and the open PhyJudge-9B evaluator.",
+          projectUrl: "https://phyground.github.io/",
+          githubUrl: "https://github.com/NU-World-Model-Embodied-AI/PhyGround",
+          artifactUrl: "https://huggingface.co/datasets/NU-World-Model-Embodied-AI/phyground",
+        },
+        {
+          name: "PhyWorld",
+          kind: "Video world model",
+          seal: "界",
+          description:
+            "A physics-aware video-generation world model post-trained with temporal-coherence tuning and preference optimization derived from the PhyGround human-annotation pool.",
+          projectUrl: "https://nu-world-model-embodied-ai.github.io/PhyWorld/",
+          githubUrl: "https://github.com/NU-World-Model-Embodied-AI/PhyWorld",
+          artifactUrl: "https://huggingface.co/NU-World-Model-Embodied-AI/phyworld",
+        },
+      ],
+    },
     tech: {
       label: "Technology",
       title: "Forged in Rust",
@@ -106,6 +144,7 @@ const translations = {
     nav: {
       brand: "Moxin 应用",
       apps: "应用",
+      research: "世界模型",
       tech: "技术",
     },
     hero: {
@@ -176,6 +215,43 @@ const translations = {
         ],
       },
     },
+    research: {
+      label: "研究",
+      title: "世界模型与具身智能",
+      subtitle:
+        "Moxin 正在将开放 AI 应用与能够模拟、预测并作用于物理世界的前沿研究连接起来。探索 NU World Model & Embodied AI 的最新成果。",
+      loopLabel: "共享的研究闭环",
+      loopTitle: "用物理现实衡量，再以此训练。",
+      loopDescription:
+        "PhyGround 提供物理真实性评测与人类偏好数据；PhyWorld 则利用这些信号，训练出物理一致性更强的视频生成世界模型。",
+      projectPage: "项目主页",
+      code: "GitHub",
+      artifacts: "Hugging Face",
+      exploreGithub: "在 GitHub 探索研究组织",
+      exploreHuggingFace: "在 Hugging Face 查看全部模型与数据集",
+      projects: [
+        {
+          name: "PhyGround",
+          kind: "物理评测基准",
+          seal: "衡",
+          description:
+            "用于评估文生视频与图生视频物理合理性的基准，包含 250 个精选提示词、覆盖 13 条物理规律的分类体系，以及开放评测模型 PhyJudge-9B。",
+          projectUrl: "https://phyground.github.io/",
+          githubUrl: "https://github.com/NU-World-Model-Embodied-AI/PhyGround",
+          artifactUrl: "https://huggingface.co/datasets/NU-World-Model-Embodied-AI/phyground",
+        },
+        {
+          name: "PhyWorld",
+          kind: "视频世界模型",
+          seal: "界",
+          description:
+            "面向物理规律的视频生成世界模型，通过时序一致性微调，以及源自 PhyGround 人类标注数据的偏好优化完成后训练。",
+          projectUrl: "https://nu-world-model-embodied-ai.github.io/PhyWorld/",
+          githubUrl: "https://github.com/NU-World-Model-Embodied-AI/PhyWorld",
+          artifactUrl: "https://huggingface.co/NU-World-Model-Embodied-AI/phyworld",
+        },
+      ],
+    },
     tech: {
       label: "技术",
       title: "Rust 铸造",
@@ -219,8 +295,18 @@ interface TechItem {
   detail: string;
 }
 
+interface ResearchProject {
+  name: string;
+  kind: string;
+  seal: string;
+  description: string;
+  projectUrl: string;
+  githubUrl: string;
+  artifactUrl: string;
+}
+
 export interface Translations {
-  nav: { brand: string; apps: string; tech: string };
+  nav: { brand: string; apps: string; research: string; tech: string };
   hero: { title: string; tagline: string; subtitle: string; scroll: string };
   philosophy: {
     label: string;
@@ -249,6 +335,20 @@ export interface Translations {
       description: string;
       functions: AppFunction[];
     };
+  };
+  research: {
+    label: string;
+    title: string;
+    subtitle: string;
+    loopLabel: string;
+    loopTitle: string;
+    loopDescription: string;
+    projectPage: string;
+    code: string;
+    artifacts: string;
+    exploreGithub: string;
+    exploreHuggingFace: string;
+    projects: ResearchProject[];
   };
   tech: {
     label: string;

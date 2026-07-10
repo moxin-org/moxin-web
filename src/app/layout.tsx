@@ -3,9 +3,9 @@ import { AppProvider } from "@/context/AppContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Moxin Applications — AI Crafted in Pure Rust",
+  title: "Moxin — Open AI Applications & World Models",
   description:
-    "Native AI applications built by the Moxin organization with pure Rust and Makepad. No Python runtime required.",
+    "Explore Moxin's native AI applications, open models, world-model research, and embodied AI projects including PhyGround and PhyWorld.",
 };
 
 export default function RootLayout({
